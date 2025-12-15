@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senior Project</title>
+    <title>Internet Speed Test Analysis</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="https://calvin.edu/sites/default/files/favicon_0.ico" type="image/vnd.microsoft.icon">
+    <!--Imported Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <header>
-        <h1>Senior Project</h1>
+        <h1>A Study of The Web-Based Ookla Speed Test Measurement</h1>
         <nav>
             <ul>
                 <li><a href="#vision">Vision</a></li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="#resources">Resources</a></li>
-                <li><a href="https://example.com/site1" target="_blank">External Site 1</a></li>
-                <li><a href="https://example.com/site2" target="_blank">External Site 2</a></li>
-                <li><a href="https://example.com/site3" target="_blank">External Site 3</a></li>
             </ul>
         </nav>
     </header>
@@ -25,71 +29,95 @@
         <section id="vision">
             <h2>Vision Statement</h2>
             <p>
-                Our vision is to create an innovative solution that addresses real-world challenges through 
-                cutting-edge technology and collaborative effort. This project represents the culmination of 
-                our academic journey, bringing together theory and practice to deliver meaningful results 
-                that can make a difference in our community and beyond.
-            </p>
-            <p>
-                We envision a future where our project serves as a foundation for continued innovation, 
-                demonstrating the power of teamwork, dedication, and technical excellence. Through this 
-                initiative, we aim to not only meet our immediate objectives but also to inspire future 
-                students and professionals to push the boundaries of what's possible.
+                Commercial Internet speed test platforms are widely used to evaluate network performance, but some of
+                their internal implementation and network performance metrics are not publicly available. This lack of
+                transparency and standardization makes it difficult to compare results or understand what they mean.
+                This project will be made up of multiple phases. The first phase is to perform an in-depth analysis of
+                the behavior of Ookla, the largest Internet speed test platform, by using Netlog captures collected
+                during a browser-based speed test. This work builds off of previous work performed in the Spring 2025
+                semester. The goal through the first half of the Fall 2025 semester is to perform more tests to validate
+                our initial findings and then submit a publishable paper to IMC. A significant portion of this paper
+                will also investigate different models of throughput measurement. After this paper has been written, we
+                will shift to validating a toolkit developed by CAIDA at UC San Diego. This toolkit is used as a wrapper
+                to standardize the parameters for various speed test platforms, thus making them more comparable. By
+                looking deeper into Ookla’s implementation, we can verify that the toolkit developed by CAIDA works as
+                intended.
             </p>
         </section>
 
         <section id="summary">
-            <h2>Project Summary</h2>
+            <h2>Project Background</h2>
             <p>
-                This senior project focuses on developing a comprehensive solution that integrates modern 
-                technologies and best practices. Our approach combines thorough research, iterative 
-                development, and rigorous testing to ensure a high-quality outcome. The project leverages 
-                industry-standard tools and methodologies while incorporating innovative approaches to 
-                solve complex problems.
+                This project was initially started in 2023 by CAIDA at UC San Diego, who developed an open source
+                toolkit
+                called RABBITS, which is a wrapper over six speed test platforms to provide standardized
+                parameters for running speed tests. In the Spring of 2024, a senior project team from Calvin University
+                began working on the
+                project. Their work involved
+                using Netlog captures to extract important data and perform an initial analysis of RABBITS using the
+                Ookla speed test server.
+                In their analysis, the team examined the effect of the number of TCP flows and the size of the HTTP
+                message
+                request on the throughput measurement.
             </p>
             <p>
-                Throughout the development process, we have worked closely with our advisors and maintained 
-                a collaborative team environment. Our methodology emphasizes agile principles, continuous 
-                improvement, and stakeholder engagement. The final deliverable will showcase our technical 
-                skills, problem-solving abilities, and commitment to excellence.
+                In the Spring of 2025, we povioted to investigating the behavior of Ookla in more detail. By doing so,
+                we can then return to RABBITs and perform a comparative analysis.
+                We produced an initial paper in the beginning of the Spring, and will be returning to this paper to
+                validate the initial claims.
+                Over the Summer of 2025, a Summer Researcher worked on this project as well. Measuring the internet has
+                a
+                substantial community, and there is an annual Internet Measurement Conference (IMC). The ICM allows
+                papers to be published on various internet measuring investigations. ArXiv also has a repository of
+                related research to internet measuring, such as a paper on early termination of speed tests to reduce
+                unnecessary traffic
+            </p>
+            <p>
+                Most Internet speed test platforms, except for M-Lab, generally use the same measurement method which is
+                to flood the network with synthetic data to the point where a bottleneck is reached. This bottleneck is
+                the narrowest bandwidth in both the download paths and upload paths. In order to flood the bottleneck
+                along the network path, a large amount of data must be sent. If the volume of data is too low, the
+                bottleneck will not be saturated and throughput measurements will be an under-estimate of the true
+                throughput. Speed tests are also traditionally performed on the “last mile” server, which is the closest
+                server to the user.
+
             </p>
         </section>
 
         <section id="team">
             <h2>Team Members</h2>
             <ul class="team-list">
-                <li>Team Member 1</li>
-                <li>Team Member 2</li>
+                <li>Ben Kosters: A senior at Calvin University who is focused on learning more about networking and
+                    security.</li>
+                <li>Priscilla Chen (CS390): A junior at Calvin University who is focused on learning more about data
+                    analysis.</li>
             </ul>
 
             <h3>Project Advisors</h3>
             <ul class="team-list">
-                <li>Advisor 1</li>
-                <li>Advisor 2</li>
-                <li>Advisor 3</li>
+                <li>Professor Rocky Chang</li>
+                <li>Dr. Ricky Mok (CAIDA)</li>
+                <li>Tanmay Nale (UCSD)</li>
             </ul>
         </section>
 
         <section id="resources">
             <h2>Project Resources</h2>
-            
-            <h3>Project Report</h3>
             <ul class="resource-list">
-                <li><a href="reports/project-report.pdf" target="_blank">Final Project Report</a></li>
-            </ul>
-
-            <h3>Research Materials</h3>
-            <ul class="resource-list">
-                <li><a href="https://example.com/research1" target="_blank">Research Paper 1</a></li>
-                <li><a href="https://example.com/research2" target="_blank">Research Paper 2</a></li>
-                <li><a href="https://example.com/research3" target="_blank">Technical Documentation</a></li>
-                <li><a href="https://example.com/research4" target="_blank">Industry Standards</a></li>
+                <li><a href="https://calvin.edu/academics/school-stem/computer-science" target="_blank">Calvin
+                        University Computer Science Department</a></li>
+                <li><a href="https://github.com/benKosters/speed-test-analysis" target="_blank">Project Codebase</a>
+                </li>
+                <li><a href="https://calvincollege.sharepoint.com/sites/speedtestanalysis/SitePages/Internet-Speed-Test-Analysis.aspx#"
+                        target="_blank">Team Files and Resources</a></li>
+                <li><a href="https://calvincollege.sharepoint.com/:p:/r/sites/speedtestanalysis/Shared%20Documents/Presentations/CS396%20Mid-Project%20Report.pptx?d=waadfe9dc7c014269bea042408a43a87c&csf=1&web=1&e=xr3pqa"
+                        download>Mid-Year Status Report Presentation</a></li>
+                <li><a href="https://github.com/CAIDA/rabbits-perf" target="_blank">CAIDA RABBITS Toolkit</a></li>
+                <li><a href="https://www.speedtest.net/" target="_blank">Ookla Speed Test</a></li>
             </ul>
         </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2025 Senior Project Team. All rights reserved.</p>
-    </footer>
+    </main>
 </body>
+
 </html>
